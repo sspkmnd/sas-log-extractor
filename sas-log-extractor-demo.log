@@ -1,0 +1,234 @@
+
+1          OPTIONS NONOTES NOSTIMER NOSOURCE NOSYNTAXCHECK;
+72         
+73         options ls=64 mprint source2;
+74         
+75         %include "~/source2.sas";
+NOTE: %INCLUDE (level 1) file ~/source2.sas is file 
+      /home/sspkmnd/source2.sas.
+76        +data _null_;
+77        +set sashelp.class;
+78        +if Name = 'John' then do;
+79        +put "Lorem Ipsum is simply dummy text of the
+79       !+printing and typesetting
+80        +industry. Lorem Ipsum has been the industry's
+80       !+standard dummy text ever
+81        +since the 1500s, when an unknown printer took a
+81       !+galley of type and scrambled
+82        +it to make a type specimen book. It has survived not
+82       !+only five centuries, but
+NOTE: The quoted string currently being processed has become 
+      more than 262 bytes long.  You might have unbalanced 
+      quotation marks.
+83        +also the leap into electronic typesetting, remaining
+83       !+essentially unchanged.
+84        +It was popularised in the 1960s with the release of
+84       !+Letraset sheets containing
+85        +Lorem Ipsum passages, and more recently with desktop
+85       !+publishing software like
+86        +Aldus PageMaker including versions of Lorem Ipsum.";
+87        +end;
+88        +run;
+
+Lorem Ipsum is simply dummy text of the printing and typesetting
+ industry. Lorem Ipsum has been the industry's standard dummy te
+xt eversince the 1500s, when an unknown printer took a galley of
+ type and scrambledit to make a type specimen book. It has survi
+ved not only five centuries, butalso the leap into electronic ty
+pesetting, remaining essentially unchanged. It was popularised i
+n the 1960s with the release of Letraset sheets containingLorem 
+Ipsum passages, and more recently with desktop publishing softwa
+re likeAldus PageMaker including versions of Lorem Ipsum.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: DATA statement used (Total process time):
+      real time           0.00 seconds
+      user cpu time       0.00 seconds
+      system cpu time     0.00 seconds
+      memory              487.09k
+      OS Memory           31908.00k
+      Timestamp           03/08/2018 12:10:03 AM
+      Step Count                        25  Switch Count  0
+      Page Faults                       0
+      Page Reclaims                     82
+      Page Swaps                        0
+      Voluntary Context Switches        0
+      Involuntary Context Switches      0
+      Block Input Operations            0
+      Block Output Operations           0
+
+
+NOTE: %INCLUDE (level 1) ending.
+89         
+90         proc print data=sashelp.cars;
+91         run;
+
+NOTE: There were 428 observations read from the data set 
+      SASHELP.CARS.
+NOTE: PROCEDURE PRINT used (Total process time):
+      real time           1.91 seconds
+      user cpu time       1.90 seconds
+      system cpu time     0.01 seconds
+      memory              12237.03k
+      OS Memory           42916.00k
+      Timestamp           03/08/2018 12:10:05 AM
+      Step Count                        26  Switch Count  0
+      Page Faults                       0
+      Page Reclaims                     2601
+      Page Swaps                        0
+      Voluntary Context Switches        0
+      Involuntary Context Switches      2
+      Block Input Operations            0
+      Block Output Operations           896
+
+
+92         
+93         %macro useless_loop(times);
+94         data class&times;
+95         set %do i=1 %to &times;
+96                         sashelp.class
+97                     %end;
+98                 ;
+99             run;
+100        %mend;
+101        
+102        %useless_loop(50)
+MPRINT(USELESS_LOOP):   data class50;
+MPRINT(USELESS_LOOP):   set sashelp.class sashelp.class 
+sashelp.class sashelp.class sashelp.class sashelp.class 
+sashelp.class sashelp.class sashelp.class sashelp.class 
+sashelp.class sashelp.class sashelp.class sashelp.class 
+sashelp.class sashelp.class sashelp.class sashelp.class 
+sashelp.class sashelp.class sashelp.class sashelp.class 
+sashelp.class sashelp.class sashelp.class sashelp.class 
+sashelp.class sashelp.class sashelp.class sashelp.class 
+sashelp.class sashelp.class sashelp.class sashelp.class 
+sashelp.class sashelp.class sashelp.class sashelp.class 
+sashelp.class sashelp.class sashelp.class sashelp.class 
+sashelp.class sashelp.class sashelp.class sashelp.class 
+sashelp.class sashelp.class sashelp.class sashelp.class ;
+MPRINT(USELESS_LOOP):   run;
+
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: There were 19 observations read from the data set 
+      SASHELP.CLASS.
+NOTE: The data set WORK.CLASS50 has 950 observations and 5 
+      variables.
+NOTE: DATA statement used (Total process time):
+      real time           0.01 seconds
+      user cpu time       0.02 seconds
+      system cpu time     0.00 seconds
+      memory              2682.40k
+      OS Memory           39336.00k
+      Timestamp           03/08/2018 12:10:05 AM
+      Step Count                        27  Switch Count  2
+      Page Faults                       0
+      Page Reclaims                     696
+      Page Swaps                        0
+      Voluntary Context Switches        16
+      Involuntary Context Switches      0
+      Block Input Operations            0
+      Block Output Operations           264
+
+
+103        
+104        
+105        OPTIONS NONOTES NOSTIMER NOSOURCE NOSYNTAXCHECK;
+118        

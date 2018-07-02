@@ -32,3 +32,16 @@ java LogExtractor -mprint -source2 sas-log-extractor-demo.log | tee sas-log-extr
 ¯\\\_(ツ)\_/¯
 
 Do the same but using Windows command line utility be that cmd/powershell/etc. To install ANTLR follow [this guide](https://github.com/antlr/antlr4/blob/master/doc/getting-started.md).
+
+
+1. Install ANTLR somewhere following the guide:
+
+## Demo
+
+[![asciicast](https://asciinema.org/a/dwybgV2EuYdTof47ZlRU4DqYk.png)](https://asciinema.org/a/dwybgV2EuYdTof47ZlRU4DqYk)
+
+## Disclaimer
+
+This utility was tested on a very basic logs and definitely not capable of extracting from arbitrary logs produced by SAS. If you found an example which is handled incorrectly please submit [an issue](https://github.com/sspkmnd/sas-log-extractor/issues/new) with details.
+
+The utility is published temporarily for SAS-L question and will be become a part of [saslint](https://saslint.com/) when it will be released.

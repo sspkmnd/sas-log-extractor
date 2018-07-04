@@ -232,3 +232,69 @@ NOTE: DATA statement used (Total process time):
 104        
 105        OPTIONS NONOTES NOSTIMER NOSOURCE NOSYNTAXCHECK;
 118        
+
+31         %macro concat;
+32         data all;
+33         set
+34         %do i = 1 %to 4;
+35         dsn&i
+36         %end;
+37         ; /* this additional ';' is necessary, the first ';' is for
+38         the "%end", while the second ';' is for "set " */
+39         run;
+40         %mend;
+41        
+42         %concat;
+MLOGIC(CONCAT): Beginning execution.
+MLOGIC(CONCAT): %DO loop beginning; index variable I; start value is 1; stop value is 4; by value is
+1.
+MLOGIC(CONCAT): %DO loop index variable I is now 2; loop will iterate again.
+MLOGIC(CONCAT): %DO loop index variable I is now 3; loop will iterate again.
+MLOGIC(CONCAT): %DO loop index variable I is now 4; loop will iterate again.
+MLOGIC(CONCAT): %DO loop index variable I is now 5; loop will not iterate again.NOTE: There were 6 observations read from the data set WORK.DSN1.
+NOTE: There were 6 observations read from the data set WORK.DSN2.
+NOTE: There were 6 observations read from the data set WORK.DSN3.
+NOTE: There were 6 observations read from the data set WORK.DSN4.
+NOTE: The data set WORK.ALL has 24 observations and 1 variables.
+NOTE: DATA statement used (Total process time):
+real time 0.06 seconds
+cpu time 0.06 seconds
+MLOGIC(CONCAT): Ending execution.
+
+
+
+31         %macro concat;
+32         data all;
+33         set
+34         %do i = 1 %to 4;
+35         dsn&i
+36         %end;
+37         ; /* this additional ';' is necessary, the first ';' is for
+38         the "%end", while the second ';' is for "set " */
+39         run;
+40         %mend;
+41        
+42         %concat;
+SYMBOLGEN: Macro variable I resolves to 1
+SYMBOLGEN: Macro variable I resolves to 2
+SYMBOLGEN: Macro variable I resolves to 3
+SYMBOLGEN: Macro variable I resolves to 4
+
+NOTE: There were 6 observations read from the data set WORK.DSN1.
+NOTE: There were 6 observations read from the data set WORK.DSN2.
+NOTE: There were 6 observations read from the data set WORK.DSN3.
+NOTE: There were 6 observations read from the data set WORK.DSN4.
+NOTE: The data set WORK.ALL has 24 observations and 1 variables.
+NOTE: DATA statement used (Total process time):
+real time 0.06 seconds
+cpu time 0.06 seconds
+
+
+3131       options nomlogic;
+3132       %macro demo(val);
+3133       %if &val eq 'test' %then %put it worked;
+3134       %else %put it did not work;
+3135       %mend;
+3136      
+3137       %demo(test)
+it did not work 
